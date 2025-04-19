@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码生成器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/lock.png" type="image/png">
+    <meta name="theme-color" content="#2c791e">
+    <meta name="description" content="一款简洁、高效的在线密码生成工具。可自定义密码长度和字符组合，生成高强度密码。">
+</head>
+<body>
+    <div class="language-selector">
+        <select id="language">
+            <option value="zh">🇨🇳 中文</option>
+            <option value="en">🇺🇸 English</option>
+        </select>
+        <span class="language-icon">🌐</span>
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <div class="emoji-logo">🔒</div>
+            <h1>密码生成器</h1>
+            <p class="tagline">生成安全可靠的强密码</p>
+        </div>
+        
+        <div class="password-display">
+            <p id="password">Q%r$T7CVtmUFm4wZJTr^^NK</p>
+            <div class="password-actions">
+                <button id="refresh" title="刷新密码">
+                    <span class="icon">🔄</span>
+                </button>
+                <button id="copy" title="复制密码">
+                    <span class="icon">📋</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="strength-indicator">
+            <span class="check-mark">✓</span>
+            <span class="strength-text">超级强 🔒</span>
+        </div>
+        
+        <div class="password-options">
+            <div class="length-option">
+                <label>密码长度 (4-32)</label>
+                <div class="slider-container">
+                    <input type="range" id="length-slider" min="4" max="32" value="23">
+                    <span id="length-value">23</span>
+                </div>
+            </div>
+            
+            <div class="character-options">
+                <h3>组合选项</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="letters" checked>
+                        <label for="letters"><span class="icon">🔤</span> 字母</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="uppercase" checked>
+                        <label for="uppercase"><span class="icon">🔠</span> 大小写</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="symbols" checked>
+                        <label for="symbols"><span class="icon">🔣</span> 标点符号</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="numbers" checked>
+                        <label for="numbers"><span class="icon">🔢</span> 数字</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="exclude-similar" checked>
+                        <label for="exclude-similar"><span class="icon">🚫</span> 排除相似字符</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>双击密码区域可快速复制 💡</p>
+        </footer>
+    </div>
+
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
