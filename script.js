@@ -17,7 +17,8 @@ const config={  // #全局配置参数
   ],
   translations:{ // #翻译配置
     zh:{
-      title:'密码生成器',
+      title:'KeyShield',
+      tagline:'生成安全可靠的强密码',
       passwordLength:'密码长度 (4-32)',
       options:'组合选项',
       letters:'字母',
@@ -28,10 +29,14 @@ const config={  // #全局配置参数
       refreshTitle:'🔄 刷新密码',
       copyTitle:'📋 复制密码',
       copiedMessage:'✅ 已复制到剪贴板!',
-      generateMessage:'🎉 密码已生成!'
+      generateMessage:'🎉 密码已生成!',
+      githubLink:'在GitHub上查看源码',
+      githubFooter:'在 GitHub 上查看项目',
+      doubleClickTip:'双击密码区域可快速复制 💡'
     },
     en:{
-      title:'Password Generator',
+      title:'KeyShield',
+      tagline:'Generate secure & strong passwords',
       passwordLength:'Password Length (4-32)',
       options:'Character Options',
       letters:'Letters',
@@ -42,7 +47,10 @@ const config={  // #全局配置参数
       refreshTitle:'🔄 Refresh Password',
       copyTitle:'📋 Copy Password',
       copiedMessage:'✅ Copied to clipboard!',
-      generateMessage:'🎉 Password generated!'
+      generateMessage:'🎉 Password generated!',
+      githubLink:'View on GitHub',
+      githubFooter:'View project on GitHub',
+      doubleClickTip:'Double-click to copy password 💡'
     }
   }
 };
@@ -65,6 +73,7 @@ const elements={
   passwordDisplay:document.querySelector('.password-display'),
   languageSelector:document.getElementById('language'),
   title:document.querySelector('h1'),
+  tagline:document.querySelector('.tagline'),
   lengthLabel:document.querySelector('.length-option label'),
   optionsTitle:document.querySelector('.character-options h3'),
   checkboxLabels:document.querySelectorAll('.checkbox-item label')
@@ -285,6 +294,7 @@ const updateLanguage=lang=>{
   
   // 更新标题和标签
   elements.title.textContent=t.title;
+  if(elements.tagline) elements.tagline.textContent=t.tagline;
   elements.lengthLabel.textContent=t.passwordLength;
   elements.optionsTitle.textContent=t.options;
   
@@ -297,6 +307,18 @@ const updateLanguage=lang=>{
   // 更新按钮提示
   elements.refreshBtn.title=t.refreshTitle;
   elements.copyBtn.title=t.copyTitle;
+  
+  // 更新GitHub链接
+  const githubLink = document.querySelector('.github-link');
+  if(githubLink) githubLink.title = t.githubLink;
+  
+  // 更新GitHub页脚
+  const githubFooter = document.querySelector('.github-footer');
+  if(githubFooter) githubFooter.textContent = t.githubFooter + ' ⭐';
+  
+  // 更新双击提示
+  const doubleClickTip = document.querySelector('.footer p');
+  if(doubleClickTip) doubleClickTip.textContent = t.doubleClickTip;
   
   // 更新密码强度指示器
   const password=elements.password.textContent;
